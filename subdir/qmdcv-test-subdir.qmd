@@ -1,0 +1,74 @@
+---
+title: "Name"
+format:
+  html:
+    self-contained: true
+execute: 
+  echo: false
+  output: asis
+---
+
+```{css}
+h1 {
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: darkred;
+}
+```
+
+:::{style="text-align:center"}
+Position  
+Institution  
+Contact | Web
+:::
+
+```{r}
+library(qmdcv)
+data(cvdata)
+data <- cvdata
+```
+
+## Education
+
+```{r}
+edu <- data$education
+insert(edu)
+```
+
+## Funding
+
+### Grants
+
+```{r}
+grants <- data$grants
+insert(grants)
+```
+
+## Publications
+
+```{r}
+pubs <- data$publications$articles
+insert_pubs(pubs)
+```
+
+## Publications (for web)
+
+```{r}
+insert_pubs_web(pubs)
+```
+
+## Presentations
+
+```{r}
+talks <- data$talks
+insert_talks(talks)
+```
+
+## Teaching
+
+```{r}
+teaching <- data$teaching
+insert_list(teaching, type = "u")
+```
